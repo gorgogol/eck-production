@@ -2,9 +2,10 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: sc-warm-cold
-provisioner: kubernetes.io/gce-pd
+provisioner: kubernetes.io/azure-disk
 parameters:
-  type: pd-standard
+  storageaccounttype: Standard_LRS
+  kind: Managed
 reclaimPolicy: Delete
 volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true

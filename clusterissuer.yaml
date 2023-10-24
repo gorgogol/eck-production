@@ -4,11 +4,12 @@ metadata:
   name: letsencrypt-production
 spec:
   acme:
-    email: fsouza@elastic.co
+    email: nikolaos.zisimos@gmail.com
+    #server: https://acme-staging-v02.api.letsencrypt.org/directory
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       #name: issuer-letsencrypt-production
-      name: letsencrypt-production
+      name: letsencrypt 
     solvers:
     - http01:
         ingress:

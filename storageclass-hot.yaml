@@ -2,9 +2,10 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: sc-hot
-provisioner: kubernetes.io/gce-pd
+provisioner: kubernetes.io/azure-disk
 parameters:
-  type: pd-ssd
+  storageaccounttype: Standard_LRS
+  kind: Managed
 reclaimPolicy: Delete
 volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true

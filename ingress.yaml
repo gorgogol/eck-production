@@ -5,14 +5,15 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     cert-manager.io/cluster-issuer: "letsencrypt-production"
+    #cert-manager.io/cluster-issuer: "selfsigned"
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
-      - kibana.framsouza.co
-    secretName: letsencrypt-cert
+      - kibana.sequ.re
+    secretName: kibana-tls
   rules:
-    - host: kibana.framsouza.co
+    - host: kibana.sequ.re
       http:
         paths:
           - path: /
@@ -22,29 +23,4 @@ spec:
                 name: kibana-kb-http
                 port:
                   number: 5601
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: monitoring
-  namespace: monitoring
-  annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-    cert-manager.io/cluster-issuer: "letsencrypt-production"
-spec:
-  ingressClassName: nginx
-  tls:
-  - hosts:
-      - monitoring.framsouza.co
-    secretName: letsencrypt-cert
-  rules:
-    - host: monitoring.framsouza.co
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: monitoring-kb-http
-                port:
-                  number: 5601
+

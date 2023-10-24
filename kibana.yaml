@@ -9,11 +9,8 @@ spec:
     name: elasticsearch
   config:
     xpack.security.authc.providers:
-      saml.saml1:
-        order: 0
-        realm: "saml1"
       basic.basic1:
-        order: 1
+        order: 0
     xpack.fleet.agents.elasticsearch.hosts: ["https://elasticsearch-es-http.default.svc:9200"]
     xpack.fleet.agents.fleet_server.hosts: ["https://fleet-server-agent-http.default.svc:8220"]
     xpack.fleet.packages:

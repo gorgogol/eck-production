@@ -88,8 +88,3 @@ then you just need to run and wait a couple of hours until the test is finished.
 ```
 docker run -v /tmp/params-file.json:/tmp/params-file.json elastic/rally race --track=http_logs --target-hosts=${IP}:9200 --pipeline=benchmark-only --client-options="timeout:60,use_ssl:true,verify_certs:false,basic_auth_user:'elastic',basic_auth_password:'${PASSWORD}'"  --track-params=/tmp/params-file.json
 ```
-
-Have a look at [esrally-result.txt](https://github.com/framsouza/eck-ready-for-production/blob/main/esrally-result.txt).
-
-
-Seya.
